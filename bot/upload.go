@@ -39,6 +39,7 @@ func UploadVersion(version string) error {
 	}
 	versionModel.Uploaded = true
 	versionModel.FileID = msg.Document.FileID
+	versionModel.MessageID = msg.MessageID
 	if err := dao.UpdateVersion(versionModel); err != nil {
 		return err
 	}
