@@ -11,8 +11,8 @@ import (
 )
 
 var (
-	Bot           *telego.Bot
-	ChannelChatID telego.ChatID
+	Bot               *telego.Bot
+	MainChannelChatID telego.ChatID
 )
 
 func InitBot() error {
@@ -26,11 +26,7 @@ func InitBot() error {
 	if err != nil {
 		return err
 	}
-	if config.Cfg.Username != "" {
-		ChannelChatID = telegoutil.Username(config.Cfg.Username)
-	} else {
-		ChannelChatID = telegoutil.ID(config.Cfg.ChatID)
-	}
+	MainChannelChatID = telegoutil.Username(config.Cfg.Usernames[0])
 	return nil
 }
 
