@@ -25,7 +25,6 @@ func Run() {
 		fmt.Println("Error initializing bot: ", err)
 		os.Exit(1)
 	}
-	go bot.Run()
 	ticker := time.NewTicker(time.Duration(config.Cfg.Interval) * time.Second)
 	for {
 		execTask()
